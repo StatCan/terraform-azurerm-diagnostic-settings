@@ -1,4 +1,3 @@
-
 data "azurerm_monitor_diagnostic_categories" "this" {
   resource_id = var.target_resource_id
 }
@@ -30,7 +29,7 @@ resource "azurerm_monitor_diagnostic_setting" "this" {
 
     content {
       category = metric.value
-      enabled  = contains(var.metrics, "all") || contains(var.metrics), metric.value)
+      enabled  = contains(var.metrics, "all") || contains(var.metrics, metric.value)
 
       retention_policy {
         enabled = true
